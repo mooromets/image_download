@@ -5,22 +5,6 @@ tesla = ['https://3c1703fe8d.site.internapcdn.net/newman/csz/news/800/2018/5a7a9
 import concurrent.futures
 import urllib.request
 
-# Retrieve a single page and report the URL and contents
-def load_url(url, timeout):
-    with urllib.request.urlopen(url, timeout=timeout) as conn:
-        return conn.read()
-
-#save pic
-def savepic(url):
-    with open(url[-10:], 'wb') as handle:
-            response = requests.get(pic_url, stream=True)
-            if not response.ok:
-                print (response)
-            for block in response.iter_content(1024):
-                if not block:
-                    break
-                handle.write(block)
-
 # retrieve a picture and save it
 def savepic(url, timeout):
     #open connection
