@@ -36,6 +36,8 @@ def save_image(url, path, timeout):
 # @param threads number of threads
 # @param timeout timeout for each file
 #
+# @return a number of successfully downloaded
+#
 def download_files(imageLinks, toDir = 'img', threads = 4, timeout = 60):
     print('%d files are in a list'  % len(imageLinks))
     loaded = 0
