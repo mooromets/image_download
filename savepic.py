@@ -38,6 +38,7 @@ def save_image(url, path, timeout):
 #
 def download_files(imageLinks, toDir = 'img', threads = 4, timeout = 60):
     print('%d files are in a list'  % len(imageLinks))
+    loaded = 0
     # retrieve pictures in parallel
     with concurrent.futures.ThreadPoolExecutor(max_workers=threads) as executor:
         future_to_url = {executor.submit(save_image, url, setup_dir(toDir), timeout): url for url in imageLinks} 
@@ -50,6 +51,11 @@ def download_files(imageLinks, toDir = 'img', threads = 4, timeout = 60):
             else:
                 if not res:
                     print('URL: %r was not an image file'  % (url))
+                else:
+                    loaded += 1
+    print('%d files succeeded'  % loaded)
+    return loaded
+
 
 
 ## match_header

@@ -6,3 +6,4 @@
 env/
 img/
 input.txt
+__pycache__/
