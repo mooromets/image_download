@@ -103,6 +103,7 @@ def setup_dir(dirName):
    return dirName
 
 
+# main
 if __name__ == "__main__":
     if len(sys.argv) != 2:
         print ("Run: savepic.py <text-file>")
