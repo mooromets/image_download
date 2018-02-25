@@ -109,9 +109,14 @@ if __name__ == "__main__":
         print ("Run: savepic.py <text-file>")
         exit()
 
-    start_time = time.time()
-    
-    with open(sys.argv[1], "rt") as text_file: 
-        download_files(text_file.read().splitlines())
+    try:
+        start_time = time.time()
+        with open(sys.argv[1], "rt") as text_file:
+            urls = text_file.read().splitlines()
 
-    print("Processed in %f seconds" % (time.time() - start_time))
+    except Exception as exc:
+        print('Absent or inaccessible input file: %s' % (sys.argv[1]))
+
+    else:
+        download_files(urls)
+        print("Processed in %f seconds" % (time.time() - start_time))
