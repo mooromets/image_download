@@ -10,7 +10,8 @@ Write a script that takes this plaintext file as an argument and downloads all i
 
 ### Sollution comments:
 * all downloaded images are stored in 'img' dir  
-* to avoid name collision, images are named with their full url  
+* to avoid name collision, images are named with their full url
+* images of all types are accepted
 
 ## Run
 
