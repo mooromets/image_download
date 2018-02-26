@@ -4,6 +4,7 @@ import re
 import os
 import sys
 import time
+import argparse
 
 
 ## save_image
@@ -105,17 +106,17 @@ def setup_dir(dirName):
 
 # main
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print ("Run: savepic.py <text-file>")
-        exit()
+    parser = argparse.ArgumentParser(description = 'Download images from URLs')
+    parser.add_argument('inputfile', metavar='file', type=str, help='a path to an input text file')
+    args = parser.parse_args()
 
     try:
         start_time = time.time()
-        with open(sys.argv[1], "rt") as text_file:
+        with open(args.inputfile, "rt") as text_file:
             urls = text_file.read().splitlines()
 
     except Exception as exc:
-        print('Absent or inaccessible input file: %s' % (sys.argv[1]))
+        print('Absent or inaccessible input file: %s' % (args.inputfile))
 
     else:
         download_files(urls)
